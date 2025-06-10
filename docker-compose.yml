@@ -2,10 +2,20 @@ version: '2'
 services:
   time-server:
     build:
-      context: .
+      context: ./time-server
       dockerfile: Dockerfile
     labels:
       lagoon.type: basic
       lagoon.service.usecomposeports: true
     ports:
-      - "8080:8080" 
+      - "8080:8080"
+
+  hello-world:
+    build:
+      context: ./hello-world
+      dockerfile: Dockerfile
+    labels:
+      lagoon.type: basic
+      lagoon.service.usecomposeports: true
+    ports:
+      - "8081:8081" 
