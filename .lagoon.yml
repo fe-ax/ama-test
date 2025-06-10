@@ -1,11 +1,1 @@
 docker-compose-yaml: docker-compose.yml
-
-project: time-server
-
-environments:
-  main:
-    routes:
-      - time-server:
-          - "time-server.main.lagoon.example.com"
-    types:
-      time-server: basic 
