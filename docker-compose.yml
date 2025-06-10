@@ -1,11 +1,24 @@
-version: '3.7'
+x-lagoon-project:
+  # Lagoon project name (leave `&lagoon-project` when you edit this)
+  &lagoon-project test-app
+
+x-environment:
+  &default-environment
+    LAGOON_PROJECT: *lagoon-project
+    # Route that should be used locally, if you are using pygmy, this route *must* end with .docker.amazee.io
+    LAGOON_ROUTE: http://asd-as-d-asd-as-d-asd.docker.amazee.io
+    # Uncomment if you want to have the system behave as it will in production
+    #LAGOON_ENVIRONMENT_TYPE: production
+    # Uncomment to enable Xdebug and then restart via `docker compose up -d`
+    #XDEBUG_ENABLE: "true"
+
+x-user:
+  &default-user
+    # The default user under which the containers should run. Change this if you are on linux and run with another user than ID `1000`
+    user: '1000'
 
 services:
-  time-server:
+  nginx:
     build:
       context: .
       dockerfile: Dockerfile
-    labels:
-      lagoon.type: basic
-    ports:
-      - "8080:8080" 
