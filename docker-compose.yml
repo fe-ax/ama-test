@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+  time-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    labels:
+      lagoon.type: basic
+    ports:
+      - "8080:8080" 

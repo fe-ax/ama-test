@@ -38,6 +38,40 @@ docker build -t time-server .
 docker run -p 8080:8080 time-server
 ```
 
+## Running with Docker Compose
+
+### Start the application
+```bash
+docker-compose up -d
+```
+
+### Stop the application
+```bash
+docker-compose down
+```
+
+## Deploying with Lagoon
+
+This project is configured for deployment with [Lagoon](https://lagoon.readthedocs.io/).
+
+### Prerequisites
+- Access to a Lagoon instance
+- `lagoon` CLI tool installed
+- Project configured in Lagoon
+
+### Deploy to Lagoon
+```bash
+# Add your project to Lagoon (one time setup)
+lagoon add project
+
+# Deploy the main branch
+git push origin main
+```
+
+### Lagoon Features Configured
+- **Basic Service**: Simple HTTP service deployment
+- **Custom Routes**: Domain routing for your application
+
 ## Testing
 
 Test the time endpoint:
